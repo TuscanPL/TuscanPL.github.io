@@ -1,0 +1,7 @@
+.transitionButton {
+    transition: 0.4s;
+}
+
+.hidden {
+    visibility: hidden;
+}
