@@ -38,7 +38,8 @@ function onPlayerReady(event){
         updateVolumeCounter();
         $("#tuneInButtonContainer").fadeIn(1000);
         $("#tuneInButton").click(()=>{
-        var rn = rN(0,54);
+        var playlistLength = player.getPlaylist().length;
+        var rn = rN(0,playlistLength - 1);
         console.log(rn);
         event.target.playVideoAt(rn);
         console.log(player.getPlayerState());
@@ -61,7 +62,7 @@ function rN(min, max) {
 function nextSong(){
     var playlistLength = player.getPlaylist().length;
     console.log("Playlist length: " + playlistLength);
-    var rnNext = rN(0,playlistLength-1);
+    var rnNext = rN(0,playlistLength - 1);
     if (player.getPlaylistIndex() != rnNext){
     usableEventVariable.target.playVideoAt(rnNext);
     }
