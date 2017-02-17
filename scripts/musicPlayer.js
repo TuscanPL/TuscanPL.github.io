@@ -19,7 +19,7 @@ function createPlayer(){
           width: '0',
           playerVars: {
             listType: 'playlist',
-            list: 'PLswRsD5Lw7mDA5UnuhAxVvH4c86Gm28Fu' //Input playlist link here
+            list: 'PLfXNkhy5rqCE54qjwFxnpZJ6DO67JsOep' //Input playlist link here
           },
           events: {
             'onReady': onPlayerReady,
@@ -32,7 +32,9 @@ function onPlayerReady(event){
         player.setPlaybackQuality("hd720");
         player.setLoop(true);
         player.setShuffle(true);
-        volume = player.getVolume();
+        volume = 100;
+        player.setVolume(volume);
+        //Debug for possible volume resets
         updateVolumeCounter();
         $("#tuneInButtonContainer").fadeIn(1000);
         $("#tuneInButton").click(()=>{
