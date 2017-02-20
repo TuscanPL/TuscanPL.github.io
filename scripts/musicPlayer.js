@@ -6,6 +6,7 @@ Global variables taken:
     - volume
     - usableEventVariable
     - event
+    - isPlaying
 */
 
 //This code embeds the YT script on the website. Works better because it lets YT load by itself.
@@ -50,13 +51,14 @@ function onPlayerReady(event){
         volume = 100;
         player.setVolume(volume);   
         updateVolumeCounter();  //Those three set the initial volume.
-        $("#tuneInButtonContainer").fadeIn(1000);
+        $("#tuneInButtonContainer").fadeIn(1500);
         $("#tuneInButton").click(()=>{
         var playlistLength = player.getPlaylist().length;
         var rn = rN(0,playlistLength - 1); //Those two setup the random starting song
         console.log("Random number: " + rn);
         event.target.playVideoAt(rn); //This one plays a random song
         usableEventVariable = event; //Sets the global variable for the script for the event player.
+        isPlaying = true; //For stopping and skipping
     });
 }
 
@@ -108,6 +110,17 @@ function substractVolume(){
     volume = volume - 10;
     player.setVolume(volume);
     updateVolumeCounter();
+}
+
+function playPause(){
+    if (isPlaying == true){
+        player.pausevideo();
+        isPlaying = false;
+    }
+    else {
+        player.playVideo();
+        isPlaying = true;
+    }
 }
 
 
