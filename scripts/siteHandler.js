@@ -27,6 +27,7 @@ $(document).ready(()=>{
         $("#volumeMinus").click(()=>{
             substractVolume();
         });
+        document.addEventListener("keyup", keyStrokeListener, false);
     });
     $(window).resize(function(){
         getWindowSize();

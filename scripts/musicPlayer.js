@@ -112,6 +112,21 @@ function substractVolume(){
     updateVolumeCounter();
 }
 
+function keyStrokeListener(e) {
+    if (e.keyCode == 74) {
+       substractVolume();
+    }
+     if (e.keyCode == 76) {
+       addVolume();
+    }
+    if (e.keyCode == 75) {
+       playPause();
+    }
+    if (e.keyCode == 73) {
+       nextSong();
+    } 
+}
+
 function playPause(){
     if (isPlaying == true){
         player.pauseVideo();
@@ -122,5 +137,4 @@ function playPause(){
         isPlaying = true;
     }
 }
-
 
