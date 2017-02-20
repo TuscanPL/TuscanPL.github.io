@@ -1,3 +1,6 @@
+/*
+Script setter. Should be pretty self explanatory.
+*/
 $(document).ready(()=>{
     $("#topBar").hide();
     $("#botBar").hide();

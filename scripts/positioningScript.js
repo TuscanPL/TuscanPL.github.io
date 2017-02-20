@@ -1,3 +1,13 @@
+/*
+Main positioning script. Captures the browsers width and height, and based on those values sets the size of every element of the website. This has to be rewritten, because almost 70% of it is attainable through pure CSS.
+
+browserHeight, browserWidth, imageHeight and imageWidth are public variables and are not to be overwritten at any part of the code. Be mindful of them. They are the main variables that set the website size.
+
+Even without CSS this code can be further refactored and minimized. Most prolly I'll do it, unless you feel brave young warriors, lol.
+
+Good CSS might render this code obsolete, lol.
+*/
+
 function getWindowSize() {
     browserHeight = $(window).height();
     browserWidth = $(window).width();
