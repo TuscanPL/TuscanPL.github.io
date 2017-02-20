@@ -8,7 +8,7 @@ Implement admin side request system. (No idea how this might work, we'll figure 
 Works on starting volume?
 Add buffering icon
 Fix the auto showName, so it only updates on song change
-Control webstie with keys?
+Control webstie with keys (Done. Inform the user not done)
 ----------
 After all that Refactor
 

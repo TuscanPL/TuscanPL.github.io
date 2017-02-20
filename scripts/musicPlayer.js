@@ -64,7 +64,17 @@ function onPlayerReady(event){
 
 //This function is called when the player state changes. Read the iFrame api for more.
 function onPlayerStateChange(event){
-        if (player.getPlayerState() == 1){
+        var playerComparison = player.getPlayerState();
+        console.log(playerComparison);
+        var checker;
+        if (playerComparison != 2 || playerComparison != 3){
+            checker = true;
+        }
+        else {
+            checker = false;
+        }
+        console.log(checker);
+        if (player.getPlayerState() == 1 && checker == true){
         showName(player.getVideoData().title); //Sets the song name
         $("#skipButton").click(()=>{nextSong()}); //Sets the handler for song skipping. Why is this here, lol.
     }
