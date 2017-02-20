@@ -109,7 +109,7 @@ function substractVolume(){
     player.setVolume(volume);
     updateVolumeCounter();
 }
-
+//hotkeys
 function keyStrokeListener(e) {
     if (e.keyCode == 74) {
        substractVolume();
@@ -122,8 +122,6 @@ function keyStrokeListener(e) {
     }
     if (e.keyCode == 73) {
        nextSong();
-    }
-
-    
+    } 
 }
-document.addEventListener("keyup", keyStrokeListener, false);
+
