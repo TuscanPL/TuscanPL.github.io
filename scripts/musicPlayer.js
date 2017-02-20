@@ -54,16 +54,14 @@ function onPlayerReady(event){
         $("#tuneInButton").click(()=>{
         var playlistLength = player.getPlaylist().length;
         var rn = rN(0,playlistLength - 1); //Those two setup the random starting song
-        console.log(rn);
+        console.log("Random number: " + rn);
         event.target.playVideoAt(rn); //This one plays a random song
-        console.log(player.getPlayerState());
         usableEventVariable = event; //Sets the global variable for the script for the event player.
     });
 }
 
 //This function is called when the player state changes. Read the iFrame api for more.
 function onPlayerStateChange(event){
-    console.log(player.getPlayerState());
         if (player.getPlayerState() == 1){
         showName(player.getVideoData().title); //Sets the song name
         $("#skipButton").click(()=>{nextSong()}); //Sets the handler for song skipping. Why is this here, lol.
@@ -78,7 +76,6 @@ function rN(min, max) {
 //Song skipping function. Playlist modular.
 function nextSong(){
     var playlistLength = player.getPlaylist().length;
-    console.log("Playlist length: " + playlistLength);
     var rnNext = rN(0,playlistLength - 1);
     if (player.getPlaylistIndex() != rnNext){ //Doesn't let the same song to repeat.
     usableEventVariable.target.playVideoAt(rnNext);
