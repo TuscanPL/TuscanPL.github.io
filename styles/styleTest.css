@@ -7,6 +7,14 @@ body {
           user-select: none;
 }
 
+a {
+    color:dodgerblue;
+}
+
+a:visited {
+    color:dodgerblue;
+}
+
 @font-face{
     font-family: hc;
     src: url("res/hc.otf");

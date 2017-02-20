@@ -40,7 +40,7 @@ function createPlayer(){ //Really, why the fuck did I even, lol.
 function onPlayerReady(event){
         player.setPlaybackQuality("hd720");
         player.setLoop(true);
-        player.setShuffle(false); //I'll prolly set it to false for the request system.
+        player.setShuffle(false); //It's false so I can manually change songs.
         volume = 30;
         player.setVolume(volume);   
         updateVolumeCounter();  //Those three set the initial volume.

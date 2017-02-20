@@ -5,6 +5,7 @@ $(document).ready(()=>{
     $("#topBar").hide();
     $("#botBar").hide();
     $("#tuneInButtonContainer").hide();
+    aboutText();
     $("#aboutPane").hide();
     $(window).ready(function(){
         getWindowSize();
