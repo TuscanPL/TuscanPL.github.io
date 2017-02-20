@@ -58,7 +58,7 @@ function onPlayerReady(event){
 //This function is called when the player state changes. Read the iFrame api for more.
 var lastPlayerState;
 function onPlayerStateChange(event){
-        if (player.getPlayerState() == 1){
+        if (player.getPlayerState() == 1 && lastPlayerState != 2){
         showName(player.getVideoData().title); //Sets the song name
     }
     lastPlayerState = player.getPlayerState();
