@@ -114,7 +114,7 @@ function substractVolume(){
 
 function playPause(){
     if (isPlaying == true){
-        player.pausevideo();
+        player.pauseVideo();
         isPlaying = false;
     }
     else {
