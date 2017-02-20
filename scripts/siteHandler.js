@@ -21,6 +21,9 @@ $(document).ready(()=>{
         $("#aboutButton").click(()=>{
             $("#aboutPane").fadeToggle(1000);
         });
+        $("#skipButton").click(()=>{
+            nextSong();
+        });
         $("#volumePlus").click(()=>{
             addVolume();
         });

@@ -20,13 +20,6 @@ function onYouTubeIframeAPIReady(){
 createPlayer(); //Why the fuck did I even
 };
 
-//Shows the song name in the topBar. Also handles fade outs for the paragraph.
-function showName(name){
-    $("#nowPlaying").fadeOut(800);
-    setTimeout(()=>{$("#nowPlaying").text(name);}, 800);
-    $("#nowPlaying").fadeIn(800);
-};
-
 //Creates the iFrame with a given playlist and parameters
 function createPlayer(){ //Really, why the fuck did I even, lol.
     player = new YT.Player('player', {
@@ -48,7 +41,7 @@ function onPlayerReady(event){
         player.setPlaybackQuality("hd720");
         player.setLoop(true);
         player.setShuffle(false); //I'll prolly set it to false for the request system.
-        volume = 100;
+        volume = 30;
         player.setVolume(volume);   
         updateVolumeCounter();  //Those three set the initial volume.
         $("#tuneInButtonContainer").fadeIn(1500);
@@ -63,22 +56,20 @@ function onPlayerReady(event){
 }
 
 //This function is called when the player state changes. Read the iFrame api for more.
+var lastPlayerState;
 function onPlayerStateChange(event){
-        var playerComparison = player.getPlayerState();
-        console.log(playerComparison);
-        var checker;
-        if (playerComparison != 2 || playerComparison != 3){
-            checker = true;
-        }
-        else {
-            checker = false;
-        }
-        console.log(checker);
-        if (player.getPlayerState() == 1 && checker == true){
+        if (player.getPlayerState() == 1){
         showName(player.getVideoData().title); //Sets the song name
-        $("#skipButton").click(()=>{nextSong()}); //Sets the handler for song skipping. Why is this here, lol.
     }
+    lastPlayerState = player.getPlayerState();
 }
+
+//Shows the song name in the topBar. Also handles fade outs for the paragraph.
+function showName(name){
+    $("#nowPlaying").fadeOut(800);
+    setTimeout(()=>{$("#nowPlaying").text(name);}, 800);
+    $("#nowPlaying").fadeIn(800);
+};
 
 //Random number generator
 function rN(min, max) {
