@@ -6,6 +6,7 @@ Global variables taken:
     - volume
     - usableEventVariable
     - event
+    - isPlaying
 */
 
 //This code embeds the YT script on the website. Works better because it lets YT load by itself.
@@ -46,17 +47,18 @@ function createPlayer(){ //Really, why the fuck did I even, lol.
 function onPlayerReady(event){
         player.setPlaybackQuality("hd720");
         player.setLoop(true);
-        player.setShuffle(true); //I'll prolly set it to false for the request system.
+        player.setShuffle(false); //I'll prolly set it to false for the request system.
         volume = 100;
         player.setVolume(volume);   
         updateVolumeCounter();  //Those three set the initial volume.
-        $("#tuneInButtonContainer").fadeIn(1000);
+        $("#tuneInButtonContainer").fadeIn(1500);
         $("#tuneInButton").click(()=>{
         var playlistLength = player.getPlaylist().length;
         var rn = rN(0,playlistLength - 1); //Those two setup the random starting song
         console.log("Random number: " + rn);
         event.target.playVideoAt(rn); //This one plays a random song
         usableEventVariable = event; //Sets the global variable for the script for the event player.
+        isPlaying = true; //For stopping and skipping
     });
 }
 
@@ -109,7 +111,7 @@ function substractVolume(){
     player.setVolume(volume);
     updateVolumeCounter();
 }
-//hotkeys
+
 function keyStrokeListener(e) {
     if (e.keyCode == 74) {
        substractVolume();
@@ -123,5 +125,16 @@ function keyStrokeListener(e) {
     if (e.keyCode == 73) {
        nextSong();
     } 
+}
+
+function playPause(){
+    if (isPlaying == true){
+        player.pauseVideo();
+        isPlaying = false;
+    }
+    else {
+        player.playVideo();
+        isPlaying = true;
+    }
 }
 
