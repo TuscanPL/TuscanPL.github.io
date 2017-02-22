@@ -41,7 +41,7 @@ function onPlayerReady(event){
         player.setPlaybackQuality("hd720");
         player.setLoop(true);
         player.setShuffle(false); //It's false so I can manually change songs.
-        volume = 30;
+        volume = 0;
         player.setVolume(volume);   
         updateVolumeCounter();  //Those three set the initial volume.
         $("#tuneInButtonContainer").fadeIn(1500);

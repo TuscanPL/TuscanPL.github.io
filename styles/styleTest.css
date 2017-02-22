@@ -66,6 +66,7 @@ a:visited {
     z-index: 1;
     bottom: 0px;
     box-shadow: 2px -2px 7px #000000;
+    
 }
 
 #botBar p {
@@ -164,8 +165,8 @@ a:visited {
 #volumeMinus {
     transition: 0.3s;
     position:fixed;
-    width:50px;
-    height:200px;
+    width: auto;
+    
 }
 
 #volumeMinus:hover {
@@ -175,9 +176,11 @@ a:visited {
 #volumePlus {
     transition: 0.3s;
     position:fixed;
-    width:50px;
-    height:200px;
+    width:auto;
+    
+    
 }
+
 
 #volumePlus:hover {
     background-color: rgba(0, 19, 51, 1);
@@ -189,4 +192,9 @@ a:visited {
     width:30px;
     height:200px;
     position:fixed;
+}
+#volumeCounter p{
+    width: 58.83px;
+    margin-left: 10px;
+    text-align: center;
 }
