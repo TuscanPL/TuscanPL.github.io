@@ -65,3 +65,14 @@ function aboutText(){
 
     $("#aboutPane p").html(about);
 }
+
+//this makes backgrounds change =================
+$("#backgroundPicture").hide();
+
+function test() {
+    $("#bgContainer img").first().appendTo('#bgContainer').fadeOut(5000);
+    $("#bgContainer img").first().fadeIn(5000);
+    setTimeout(test, 7000);
+}
+test();
+//this makes backgrounds change =================
