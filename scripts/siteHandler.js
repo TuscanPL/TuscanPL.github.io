@@ -6,6 +6,7 @@ $(document).ready(()=>{
     $("#botBar").hide();
     $("#tuneInButtonContainer").hide();
     aboutText();
+    $("#instructions").hide();
     $("#aboutPane").hide();
     $(window).ready(function(){
         getWindowSize();
@@ -19,6 +20,9 @@ $(document).ready(()=>{
                 $("#botBar").fadeIn(1000);
             }, 1000);
         });
+        $("#qMark").click(()=>{
+            $("#instructions").fadeToggle(1000);
+        });    
         $("#aboutButton").click(()=>{
             $("#aboutPane").fadeToggle(1000);
         });
