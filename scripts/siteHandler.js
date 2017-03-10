@@ -2,6 +2,7 @@
 Script setter. Should be pretty self explanatory.
 */
 $(document).ready(()=>{
+    $("#bufferIcon").hide();
     $("#topBar").hide();
     $("#botBar").hide();
     $("#tuneInButtonContainer").hide();

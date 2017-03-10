@@ -40,13 +40,13 @@ function repositionElements() {
     var botBarHeight = $("#botBar").height();
     $("#botBar p").css({"font-size": botBarHeight*0.9 + "px", "margin-top": botBarHeight*0.1 + "px"});
     $("#volumeCounter").css({"left": (browserWidth/2 - $("#volumeCounter").width()) + "px"});
-    $("#volumeMinus").css({"right": (browserWidth/2 + $("#volumeCounter p").width()*1.05) + "px", "height": botBarHeight + "px"});
-    $("#volumePlus").css({"left": (browserWidth/2 + $("#volumeCounter p").width()*1.2) + "px", "height": botBarHeight + "px"});
+    $("#volumeCounter p").css({"font-size": botBarHeight*0.9 + "px"});
+    $("#volumeMinus").css({"right": (browserWidth/2 + browserWidth*0.025) + "px", "height": botBarHeight + "px"});
+    $("#volumePlus").css({"left": (browserWidth/2 + browserWidth*0.025) + 15 + "px", "height": botBarHeight + "px"});
     
     $("#plusImage").css({"height": botBarHeight*0.5 + "px", "margin-top": botBarHeight*0.3 + "px"});
     $("#minusImage").css({"height": botBarHeight*0.5 + "px", "margin-top": botBarHeight*0.3 + "px"});
 
-    $("#volumeCounter p").css({"font-size": botBarHeight*0.9 + "px"});
 
     $("#skipButton p").css({"margin-left": ($("#skipButton").width()/3) + "px"});
     $("#aboutButton p").css({"margin-left": ($("#skipButton").width()/4) + "px"});
@@ -72,7 +72,7 @@ $("#backgroundPicture").hide();
 function test() {
     $("#bgContainer img").first().appendTo('#bgContainer').fadeOut(5000);
     $("#bgContainer img").first().fadeIn(5000);
-    setTimeout(test, 7000);
+    setTimeout(test, 30000);
 }
 test();
 //this makes backgrounds change =================

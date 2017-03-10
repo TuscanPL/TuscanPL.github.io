@@ -219,3 +219,9 @@ a:visited {
     height: 50%;
     width: auto;
 }
+
+#bufferIcon{
+top: 65%;
+left: 48%;
+position: absolute;
+}
