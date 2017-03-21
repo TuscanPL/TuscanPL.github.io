@@ -35,13 +35,12 @@ function createPlayer(){ //Really, why the fuck did I even, lol.
           }
     });
 };
-
 //This function gets called when the iFrame is ready.
 function onPlayerReady(event){
         player.setPlaybackQuality("hd720");
         player.setLoop(true);
         player.setShuffle(false); //It's false so I can manually change songs.
-        volume = 30;
+        volume = 0;
         player.setVolume(volume);   
         updateVolumeCounter();  //Those three set the initial volume.
         $("#tuneInButtonContainer").fadeIn(1500);
@@ -62,6 +61,12 @@ function onPlayerStateChange(event){
         showName(player.getVideoData().title); //Sets the song name
     }
     lastPlayerState = player.getPlayerState();
+     if (player.getPlayerState() == 3 ){ //summons the buffer icon if buffering in progres
+        $("#bufferIcon").fadeIn(500); 
+    }
+    else   {
+        $("#bufferIcon").fadeOut(500);
+    }     
 }
 
 //Shows the song name in the topBar. Also handles fade outs for the paragraph.
@@ -138,4 +143,3 @@ function playPause(){
         isPlaying = true;
     }
 }
-
