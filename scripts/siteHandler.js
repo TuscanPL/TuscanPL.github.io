@@ -1,5 +1,5 @@
 /*
-Script setter. Should be pretty self explanatory.
+Script setter. Should be pretty self explanatory. Added comment.
 */
 $(document).ready(()=>{
     $("#bufferIcon").hide();
