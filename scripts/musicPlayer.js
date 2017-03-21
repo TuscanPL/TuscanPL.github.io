@@ -10,6 +10,9 @@ Global variables taken:
 */
 
 //This code embeds the YT script on the website. Works better because it lets YT load by itself.
+
+var playlistList = ['ev9-hE38C1w','4rw6EKl5hPs','qi1e4nnsVl8','4pS18HgV-rk','3KliuMG7NpQ','7W52quVcxHk','kf6kfbiOMLg','2a-ilPxb4mA','F9wnMMoW450','SGo5UJKfDVQ','2Ony6A1WcTM','u2JPCnLrLDE','lsTJURh-Iqo','OZtsoISv5zo','97AP2aeu91o','E3a4omT9eeA','AbXsnaPiO1Q','EB8iQBJvj90','UR9nOoWOWWQ','T5yBVZm0t_g','yTPkOw2G3Y8','vJpNoMDU1B8','6yiQKfTcPrI','nMRthCWWUtQ','gjZkdcjO2MY','evWHCTu-4o0','We7XWcL5Qm8','AFR3QVAW5GU','2rkBkADR9CQ','3MRb8zJv5JU','pFzjw1-LHlo','dJWh_0--lzg','OGYj7QBUtNI','03Amb9I3PP0','iU-f7q2qyfc','39IWVK2Ibjw','XksOs4Rp5HE','VAzihQcVRVA','Rdu1xTWETZU','n8JxFOFdkB8','gCBn1056e6M','mnKUuuf5iHA','HKc5Y3yqcsM','Lnjx0kGaMmc','IBj3AmzQp3M','xS7ZiOT5n8k','5NdMMx5v1as','tPkgnDOMOpg','v5Xt4X9RbQo'];
+
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -25,10 +28,6 @@ function createPlayer(){ //Really, why the fuck did I even, lol.
     player = new YT.Player('player', {
           height: '0',
           width: '0',
-          playerVars: {
-            listType: 'playlist',
-            list: 'PLfXNkhy5rqCE54qjwFxnpZJ6DO67JsOep' //Input playlist link here
-          },
           events: { //Events are pretty important later on. There's only 3 of them tho, I use 2. Sasuga MemeTube.
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -38,18 +37,16 @@ function createPlayer(){ //Really, why the fuck did I even, lol.
 //This function gets called when the iFrame is ready.
 function onPlayerReady(event){
         player.setPlaybackQuality("hd720");
-        player.setLoop(true);
         player.setShuffle(false); //It's false so I can manually change songs.
-        volume = 0;
+        volume = 30;
         player.setVolume(volume);   
         updateVolumeCounter();  //Those three set the initial volume.
         $("#tuneInButtonContainer").fadeIn(1500);
         $("#tuneInButton").click(()=>{
-        var playlistLength = player.getPlaylist().length;
+        var playlistLength = playlistList.length;
         var rn = rN(0,playlistLength - 1); //Those two setup the random starting song
         console.log("Random number: " + rn);
-        event.target.playVideoAt(rn); //This one plays a random song
-        usableEventVariable = event; //Sets the global variable for the script for the event player.
+        event.target.loadVideoById(playlistList[rn]); //This one plays a random song
         isPlaying = true; //For stopping and skipping
     });
 }
@@ -83,14 +80,9 @@ function rN(min, max) {
 
 //Song skipping function. Playlist modular.
 function nextSong(){
-    var playlistLength = player.getPlaylist().length;
+    var playlistLength = playlistList.length;
     var rnNext = rN(0,playlistLength - 1);
-    if (player.getPlaylistIndex() != rnNext){ //Doesn't let the same song to repeat.
-    usableEventVariable.target.playVideoAt(rnNext);
-    }
-    else{
-        nextSong();
-    }
+    player.loadVideoById(playlistList[rnNext]);
 }
 
 //Sets the volume counter number. It had to be done like that, because of the autistic Youtube API.
