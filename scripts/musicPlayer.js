@@ -46,7 +46,7 @@ function onPlayerReady(event){
         var playlistLength = playlistList.length;
         var rn = rN(0,playlistLength - 1); //Those two setup the random starting song
         console.log("Random number: " + rn);
-        event.target.playVideo(playlistList[rn]); //This one plays a random song
+        event.target.loadVideoById(playlistList[rn]); //This one plays a random song
         isPlaying = true; //For stopping and skipping
     });
 }
@@ -82,8 +82,7 @@ function rN(min, max) {
 function nextSong(){
     var playlistLength = playlistList.length;
     var rnNext = rN(0,playlistLength - 1);
-    player.playVideo(rnNext);
-
+    player.loadVideoById(playlistList[rnNext]);
 }
 
 //Sets the volume counter number. It had to be done like that, because of the autistic Youtube API.
