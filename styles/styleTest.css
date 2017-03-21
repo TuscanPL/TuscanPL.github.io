@@ -221,7 +221,34 @@ a:visited {
 }
 
 #bufferIcon{
-top: 65%;
-left: 48%;
-position: absolute;
+    max-height: 100%;
+    width: auto;
+    left: 48%;
+    position: absolute;
+}
+#bufferIcon:hover {
+    background-color: rgba(0, 0, 0, 1);
+}
+#playPause {
+    width:120px;
+    display:block;
+    height:200px;
+    transition: 0.3s;
+    z-index: 2;
+    right: 22%;
+    position: absolute;
+}
+
+#playPause p {
+    position:absolute;
+    text-align: center;
+}
+
+#playPause:hover {
+    background-color: rgba(0, 0, 0, 1);
+}
+#timeRemaining {
+    right: 10%;
+    position: absolute;
+    
 }

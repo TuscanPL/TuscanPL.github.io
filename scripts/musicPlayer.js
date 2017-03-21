@@ -130,11 +130,22 @@ function keyStrokeListener(e) {
 
 function playPause(){
     if (isPlaying == true){
+       $("#playPause p").text("Play");
         player.pauseVideo();
         isPlaying = false;
     }
     else {
+        $("#playPause p").text("Pause");
         player.playVideo();
         isPlaying = true;
     }
 }
+
+
+function timeRemaining(){
+    var timeRemainingVar = Math.floor(player.getDuration() - player.getCurrentTime());
+    var minutes = Math.floor(timeRemainingVar / 60); ;
+    var seconds = ("0" + (timeRemainingVar%60)).slice(-2);
+    $("#timeRemaining p").text(minutes + ":" + seconds);
+}
+setInterval(timeRemaining, 1000);

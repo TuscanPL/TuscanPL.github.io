@@ -36,6 +36,9 @@ $(document).ready(()=>{
         $("#volumeMinus").click(()=>{
             substractVolume();
         });
+        $("#playPause").click(()=>{
+            playPause();
+        });
         document.addEventListener("keyup", keyStrokeListener, false);
     });
     $(window).resize(function(){
