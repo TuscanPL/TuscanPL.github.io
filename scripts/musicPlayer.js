@@ -63,7 +63,10 @@ function onPlayerStateChange(event){
     }
     else   {
         $("#bufferIcon").fadeOut(500);
-    }     
+    }
+    if (player.getPlayerState() == 0){
+        nextSong();
+    }
 }
 
 //Shows the song name in the topBar. Also handles fade outs for the paragraph.
