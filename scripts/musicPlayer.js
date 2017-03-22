@@ -53,11 +53,16 @@ function onPlayerReady(event){
 
 //This function is called when the player state changes. Read the iFrame api for more.
 var lastPlayerState;
+var stateChangeCounter = 0;
 function onPlayerStateChange(event){
-        if (player.getPlayerState() == 1 && lastPlayerState != 2){
-        showName(player.getVideoData().title); //Sets the song name
-    }
     lastPlayerState = player.getPlayerState();
+    if (player.getPlayerState() == 1){
+        stateChangeCounter++;
+    }
+        if (player.getPlayerState() == 1 && lastPlayerState != 2 && stateChangeCounter >= 2){
+            showName(player.getVideoData().title); //Sets the song name
+            stateChangeCounter = 0;
+    }
      if (player.getPlayerState() == 3 ){ //summons the buffer icon if buffering in progres
         $("#bufferIcon").fadeIn(500); 
     }
